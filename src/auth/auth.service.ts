@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UsersEntity } from '../app/users/users.entity';
 import { UsersService } from '../app/users/users.service';
-import { compareSync } from 'bcrypt';
+// import { compareSync } from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
@@ -28,7 +28,8 @@ export class AuthService {
       return null;
     }
 
-    const isPasswordValid = compareSync(password, user.password);
+    // const isPasswordValid = compareSync(password, user.password);
+    const isPasswordValid = password == user.password
     if (!isPasswordValid) return null;
 
     return user;
