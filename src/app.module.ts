@@ -3,6 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { UsersModule } from './app/users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { FilesController } from './app/files/files.controller';
+import { FilesModule } from './app/files/files.module';
 
 @Module({
   imports: [
@@ -19,8 +21,9 @@ import { AuthModule } from './auth/auth.module';
     } as TypeOrmModuleOptions),
     UsersModule,
     AuthModule,
+    FilesModule,
   ],
-  controllers: [],
+  controllers: [FilesController],
   providers: [],
 })
 export class AppModule {}

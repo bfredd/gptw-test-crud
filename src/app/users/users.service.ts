@@ -31,7 +31,6 @@ export class UsersService {
     }
 
     async findByEmail(email: string){
-        console.log(email)
         try {
             return await this.usersRepository
             .createQueryBuilder('users')
